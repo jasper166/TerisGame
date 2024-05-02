@@ -6,12 +6,12 @@ class Drawing:
         self.sc = sc
         self.game_sc = game_sc
         self.bg = pygame.image.load('img/bg.jpg').convert()
-        self.game_bg = pygame.image.load('img/bg2.jpg').convert()
+        self.game_bg = pygame.image.load('img/pxfuel.jpg').convert()
         self.main_font = pygame.font.Font('font/font.ttf', 65)
         self.font = pygame.font.Font('font/font.ttf', 45)
-        self.title_tetris = self.main_font.render('TETRIS', True, pygame.Color('darkorange'))
-        self.title_score = self.font.render('score:', True, pygame.Color('green'))
-        self.title_record = self.font.render('record:', True, pygame.Color('purple'))
+        self.title_tetris = self.main_font.render('TETRIS', True, pygame.Color('white'))
+        self.title_score = self.font.render('score:', True, pygame.Color('white'))
+        self.title_record = self.font.render('record:', True, pygame.Color('white'))
 
         self.grid = [pygame.Rect(x * TILE, y * TILE, TILE, TILE) for x in range(W) for y in range(H)]
 
@@ -21,11 +21,11 @@ class Drawing:
         self.game_sc.blit(self.game_bg, (0, 0))
 
     def draw_titles(self, score, record):
-        self.sc.blit(self.title_tetris, (485, -10))
+        self.sc.blit(self.title_tetris, (485, 50))
         self.sc.blit(self.title_score, (535, 780))
         self.sc.blit(self.font.render(str(score), True, pygame.Color('white')), (550, 840))
         self.sc.blit(self.title_record, (525, 650))
-        self.sc.blit(self.font.render(record, True, pygame.Color('gold')), (550, 710))
+        self.sc.blit(self.font.render(record, True, pygame.Color('white')), (550, 710))
 
     def draw_grid(self):
         [pygame.draw.rect(self.game_sc, (40, 40, 40), i_rect, 1) for i_rect in self.grid]
